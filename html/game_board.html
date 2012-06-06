@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<!-- Copyright 2012 Intel Corporation.
+     
+     This program is licensed under the terms and conditions of the
+     Apache License, version 2.0.  The full text of the Apache License is at      
+     http://www.apache.org/licenses/LICENSE-2.0  -->
+     
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width; initial-scale=1.0; target-densitydpi=device-dpi; maximum-scale=1.0; user-scalable=0;" />
+    <title id="title"></title>
+    <link rel="stylesheet" type="text/css" href="../css/game_board.css"/>
+    <script language="Javascript" type="text/javascript" src="../js/game_board.js"></script>
+    <script language="Javascript" src="../js/getMessage.js" type="text/javascript"></script>
+    <script language="Javascript" src="../js/sound.js" type="text/javascript"></script>
+  </head>
+  <body onload="init()"> 	
+    <div id="audio">
+      <audio id="sound-fillpit" src="../audio/PiecesFillPocket.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+      <audio id="sound-bonus" src="../audio/Bonus.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+      <audio id="sound-buttonclick" src="../audio/ButtonClick.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+      <audio id="sound-gamewin" src="../audio/GameWin.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+      <audio id="sound-pickup" src="../audio/PickUpPieces.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+      <audio id="sound-pointscore" src="../audio/PointScore.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+      <audio id="sound-singlepiecefullpit" src="../audio/SinglePieceIntoFilledPocket.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+      <audio id="sound-singlepieceemptypit" src="../audio/SinglePieceIntoPocket.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+      <audio id="sound-singlepieceswoosh" src="../audio/SinglePieceIntoPocket_SpecialSwoosh.ogg" preload="auto" autobuffer type="audio/ogg"></audio>	
+    </div>
+    <div id="screen">	
+      <div id="top">
+	<input="button" class="restart" onclick="resetBoard()" alt="Reload Button"></input="button">
+	<input="button" class="settings"  onclick="settingsClicked()" alt="Settings Button"></input="button">
+	<input="button" class="help" onclick="helpClicked()" alt="Help Button"></input="button">
+      </div>
+      <div id="center">
+	<div id="settings-dialog">
+	  <div class="settings-border">
+	    <h1 class="settings-title"></h1>
+	    <h3 class="settings-return_text"></h3>
+	    <p class="settings-sound"></p>
+	    <button id="on" onclick="setSound(1)"></button>
+	    <button id="off" onclick="setSound(0)"></button>
+	    <p class="commentary"></p>
+	    <button class="commentary-buttons" id ="commentary_on" onclick="setCommentary(1)"></button>
+	    <button class="commentary-buttons" id ="commentary_off" onclick="setCommentary(0)"></button>
+	  </div>
+	</div>
+	<div id="help-dialog">
+	  <div class="help-border">
+	    <h1 class="help-title"></h1>
+	    <h3 class="help-return_text"></h3>
+	    <div class="help-dialog_instructions">
+	      <p class="help_inst1"></p>
+	      <p class="help_inst2"></p>
+	      <p class="help_inst3"></p>
+	      <p class="help_inst4"></p>
+	      <p class="help_inst5"></p>
+	      <p class="help_inst6"></p>
+	      <p class="help_inst7"></p>
+	    </div>
+	  </div>
+	</div>
+	<div id="endgame-dialog">
+	  <div class="endgame-border">
+	    <img class="endgame-crown" src="../images/MANCALA-game_winner_crown.png" alt="Crown"/>
+	    <h1 id="endgame-wintext"></h1>
+	    <div class="endgame-divider"></div>
+	    <h1 class="endgame-start-new"></h1>
+	    <button class="option-buttons no" onclick="setOption(0)"></button>
+	    <button class="option-buttons yes" onclick="setOption(1)"></button>
+	  </div>
+	</div>
+	<div class="player1-score" onclick="player1TabClicked()"><p id="player1-score_text"></p></div>
+	<div class="player2-score" onclick="player2TabClicked()"><p id="player2-score_text"></p></div>
+	<img class="game-layout" src="../images/MANCALA-game_bg_combined.jpg"  alt="Game Layout" />
+	<input="button" id="logo" alt="Game Logo" ></input="button">
+	<input="button" id="logo_blank"  alt="Game Logo Blank" ></input="button">
+	<p id="instructions" class="commentary"></p>
+	<img id="turn-arrow_p1" src="../images/MANCALA-game_turn_arrow1a.png"  alt="Player1 Turn Arrow"/>
+	<img id="turn-arrow_p2" src="../images/MANCALA-game_turn_arrow2a.png"  alt="Player2 Turn Arrow" />
+	<input="button" id="pit0" onclick="pitSelected(0, true)"></input="button"> 
+	<input="button" id="pit1" onclick="pitSelected(1, true)"></input="button">
+	<input="button" id="pit2" onclick="pitSelected(2, true)"></input="button">
+	<input="button" id="pit3" onclick="pitSelected(3, true)"></input="button">
+	<input="button" id="pit4" onclick="pitSelected(4, true)"></input="button">
+	<input="button" id="pit5" onclick="pitSelected(5, true)"></input="button">
+	<input="button" id="pit6_store" ></input="button">
+
+	<input="button" id="pit7" onclick="pitSelected(7, true)"></input="button">
+	<input="button" id="pit8" onclick="pitSelected(8, true)"></input="button">
+	<input="button" id="pit9" onclick="pitSelected(9, true)"></input="button">
+	<input="button" id="pit10" onclick="pitSelected(10, true)"></input="button">
+	<input="button" id="pit11" onclick="pitSelected(11, true)"></input="button">
+	<input="button" id="pit12" onclick="pitSelected(12, true)"></input="button"> 
+	<input="button" id="pit13_store"></input="button">
+
+	<p class="pit-count_p1_text" id="pit5_count"></p>
+	<p class="pit-count_p1_text" id="pit4_count"></p>
+	<p class="pit-count_p1_text" id="pit3_count"></p>
+	<p class="pit-count_p1_text" id="pit2_count"></p>
+	<p class="pit-count_p1_text" id="pit1_count"></p>
+	<p class="pit-count_p1_text" id="pit0_count"></p> 
+
+	<p class="pit-count_p2_text" id="pit7_count"></p>
+	<p class="pit-count_p2_text" id="pit8_count"></p>
+	<p class="pit-count_p2_text" id="pit9_count"></p>
+	<p class="pit-count_p2_text" id="pit10_count"></p>
+	<p class="pit-count_p2_text" id="pit11_count"></p>
+	<p class="pit-count_p2_text" id="pit12_count"></p>
+      </div>	
+    </div>
+  </body>
+</html>
