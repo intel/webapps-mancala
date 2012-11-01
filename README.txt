@@ -1,6 +1,6 @@
 Mancala strategy game implemeneted in HTML5/JavaScript
 
-author: Connie Berardi <connie.berardi@intel.com>
+Author/Owner: Connie Berardi <connie.berardi@intel.com>
 
 Technical Details: This app is written using HTML5/css3 and is distributed under Apache2.0 license. 
 
