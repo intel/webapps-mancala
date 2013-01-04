@@ -4,18 +4,17 @@ Author/Owner: Connie Berardi <connie.berardi@intel.com>
 
 Technical Details: This app is written using HTML5/css3 and is distributed under Apache2.0 license. 
 
-CONTENTS
-1) FONTS
-2) SOUNDS
-3) IMAGES
+FONTS
+-----------------------------------------------------------------------------
 
-1) FONTS
 Chunk Five web font 
 http://www.fontsquirrel.com/fonts/ChunkFive
 http://www.fontsquirrel.com/license/ChunkFive
 SIL Open Font License 1.1
 
-2) SOUNDS
+SOUNDS
+-----------------------------------------------------------------------------
+
 ButtonClick.ogg
 Original Name: btn121.wav
 Origin: http://www.freesound.org/people/junggle/sounds/29301/	
@@ -46,9 +45,10 @@ Original Name: foley_cable_whoosh_air_001.wav
 Origin: http://www.freesound.org/people/soundscalpel.com/sounds/110615/
 License: http://creativecommons.org/licenses/by/3.0/
 
-3) IMAGES
+IMAGES
+-----------------------------------------------------------------------------
 
-all images are created by Intel Corp.
-they are licensed under the Creative Commons Attribution 3.0 license
+All images are created by Intel Corp.
+They are licensed under the Creative Commons Attribution 3.0 license.
 http://creativecommons.org/licenses/by/3.0/us/
 
