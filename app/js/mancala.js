@@ -203,7 +203,7 @@ location[13] = {x:865, y:30};
 
 WebFontConfig = {
     custom: { families: ['ChunkFive'],
-              urls: [ '../css/font.css']},
+              urls: [ 'css/font.css']},
     active: function() {
     }
 };
