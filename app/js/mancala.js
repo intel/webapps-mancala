@@ -208,22 +208,6 @@ location[8] = {x:275, y:410};
 location[7] = {x:160, y:410};
 location[13] = {x:865, y:30};
 
-WebFontConfig = {
-    custom: { families: ['ChunkFive'],
-              urls: [ 'css/font.css']},
-    active: function() {
-    }
-};
-(function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-})();
-
 //http://greengeckodesign.com/blog/2007/10/how-to-clear-all-timeouts-in-javascript.html
 var timers= new Array();
 var timerCount;
