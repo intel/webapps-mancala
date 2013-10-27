@@ -1,6 +1,6 @@
 {
   "name": "Mancala",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Strategy game.",
   "main": "app/index.html",
   "scripts": {
