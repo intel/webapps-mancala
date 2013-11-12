@@ -33,7 +33,7 @@
         </div>
     </head>
 
-  <body onload="init()">
+  <body>
       <div id="licensepage" style="display: none">
           <div id="licensetext"><div id="licensescroll"></div></div>
           <div id="licensebtnq" class="licensebtn">Back</div>
@@ -42,28 +42,28 @@
           <img class="divider-first" src="images/MANCALA-start_divider_line.png"  alt="First Divider" />
           <input type="button" id="one-player-icon_toggleleft"  ></input>
           <p class="one-player" id="one-player_toggleleft" alt="One Player Text" ></p>
-          <input type="button" id="toggle_left" onclick="toggleNumberOfPlayers()" alt="Toggle" ></input>
+          <input type="button" id="toggle_left" alt="Toggle" ></input>
           <input type="button" id="two-player-icon_toggleleft"  ></input>
           <p class="two-player" id="two-player_toggleleft" alt="Two Player Text" ></p>
           <img class="divider-second" src="images/MANCALA-start_divider_line.png"  alt="Second Divider" />
           <h3 class="marble-count" ></h3>
-          <button class="marble-buttons" id="three-marbles" onclick="setMarbleCount(3)">3</button>
-          <button class="marble-buttons" id="four-marbles" onclick="setMarbleCount(4)">4</button>
-          <button class="marble-buttons" id="five-marbles" onclick="setMarbleCount(5)">5</button>
-          <button class="marble-buttons" id="six-marbles" onclick="setMarbleCount(6)">6</button>
+          <button class="marble-buttons" id="three-marbles">3</button>
+          <button class="marble-buttons" id="four-marbles">4</button>
+          <button class="marble-buttons" id="five-marbles">5</button>
+          <button class="marble-buttons" id="six-marbles">6</button>
           <h3 class="sound" ></h3>
-          <button class="sound-buttons" id="on" onclick="setSound(1)"></button>
-          <button class="sound-buttons" id="off" onclick="setSound(0)"></button>
+          <button class="sound-buttons" id="on"></button>
+          <button class="sound-buttons" id="off"></button>
           <img class="divider-third" src="images/MANCALA-start_divider_line.png" alt="Third Divider" />
-          <button class="start-button" onclick="startGamePressed()"></button>
+          <button class="start-button" id="start-button"></button>
           <div id="licensebtnl" style="top: 550px; left: 716px;"> i </div>
       </div>
 
       <div id="screen-game">
           <div id="top">
-              <input type="button" class="restart" onclick="restartClicked()" alt="Reload Button"></input>
-              <input type="button" class="settings"  onclick="settingsClicked()" alt="Settings Button"></input>
-              <input type="button" class="help" onclick="helpClicked()" alt="Help Button"></input>
+              <input type="button" class="restart" id="restart" alt="Reload Button"></input>
+              <input type="button" class="settings" id="settings" alt="Settings Button"></input>
+              <input type="button" class="help" id="help" alt="Help Button"></input>
           </div>
           <div id="center">
               <div id="smoke-screen"></div>
@@ -71,20 +71,20 @@
                   <div class="settings-border">
                       <h1 class="settings-title"></h1>
                       <h3 class="settings-return_text"></h3>
-                      <h3 class="settings-border-x" onclick="closeSettings()">X</h3>
+                      <h3 class="settings-border-x" id="close-settings">X</h3>
                       <p class="settings-sound"></p>
-                      <button id="sound-on" onclick="setSoundGame(1)"></button>
-                      <button id="sound-off" onclick="setSoundGame(0)"></button>
+                      <button id="sound-on"></button>
+                      <button id="sound-off"></button>
                       <p class="commentary"></p>
-                      <button class="commentary-buttons" id ="commentary_on" onclick="setCommentary(1)"></button>
-                      <button class="commentary-buttons" id ="commentary_off" onclick="setCommentary(0)"></button>
+                      <button class="commentary-buttons" id ="commentary_on"></button>
+                      <button class="commentary-buttons" id ="commentary_off"></button>
                   </div>
               </div>
               <div id="help-dialog">
                   <div class="help-border">
                       <h1 class="help-title"></h1>
                       <h3 class="help-return_text"></h3>
-                      <h3 class="help-border-x" onclick="closeHelp()">X</h3>
+                      <h3 class="help-border-x" id="help-border-x">X</h3>
                       <div class="help-dialog_instructions">
                           Capture more marbles than your opponent!
                           <br><br>
@@ -108,19 +108,19 @@
                       <h1 id="endgame-wintext"></h1>
                       <div class="endgame-divider"></div>
                       <h1 class="endgame-start-new"></h1>
-                      <button class="option-buttons no" onclick="setOption(0)"></button>
-                      <button class="option-buttons yes" onclick="setOption(1)"></button>
+                      <button class="option-buttons no" id="option-button-no"></button>
+                      <button class="option-buttons yes" id="option-button-yes"></button>
                   </div>
               </div>
               <div id="restart-dialog">
                   <div class="restart-border">
                       <h1 class="restart-start-new"></h1>
-                      <button class="restart-buttons no" onclick="setRestart(0)"></button>
-                      <button class="restart-buttons yes" onclick="setRestart(1)"></button>
+                      <button class="restart-buttons no" id="restart-button-no"></button>
+                      <button class="restart-buttons yes" id="restart-button-yes"></button>
                   </div>
               </div>
-              <div class="player1-score" onclick="player1TabClicked()"><p id="player1-score_text"></p></div>
-              <div class="player2-score" onclick="player2TabClicked()"><p id="player2-score_text"></p></div>
+              <div class="player1-score" id="player1-score"><p id="player1-score_text"></p></div>
+              <div class="player2-score" id="player2-score"><p id="player2-score_text"></p></div>
               <img class="game-layout" src="images/MANCALA-game_bg_combined.jpg"  alt="Game Layout" />
               <input type="button" id="logo" alt="Game Logo" ></input>
               <input type="button" id="logo_blank"  alt="Game Logo Blank" ></input>
@@ -160,40 +160,40 @@
           </div>
       </div>
       <map name="pit_0" id="pit_0"/>
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(0, true)" alt="pit_0"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_0"/>
       </map>
       <map name="pit_1" id="pit_1">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(1, true)" alt="pit_1"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_1"/>
       </map>
       <map name="pit_2" id="pit_2">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(2, true)" alt="pit_2"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_2"/>
       </map>
       <map name="pit_3" id="pit_3">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(3, true)" alt="pit_3"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_3"/>
       </map>
       <map name="pit_4" id="pit_4">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(4, true)" alt="pit40"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit40"/>
       </map>
       <map name="pit_5" id="pit_5">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(5, true)" alt="pit_5"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_5"/>
       </map>
       <map name="pit_7" id="pit_7">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(7, true)" alt="pit_7"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_7"/>
       </map>
       <map name="pit_8" id="pit_8">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(8, true)" alt="pit_8"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_8"/>
       </map>
       <map name="pit_9" id="pit_9">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(9, true)" alt="pit_9"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_9"/>
       </map>
       <map name="pit_10" id="pit_10">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(10, true)" alt="pit_10"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_10"/>
       </map>
       <map name="pit_11" id="pit_11">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(11, true)" alt="pit_11"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_11"/>
       </map>
       <map name="pit_12" id="pit_12">
-          <area shape="circle" coords="60, 72, 60" onclick="pitSelected(12, true)" alt="pit_12"/>
+          <area shape="circle" coords="60, 72, 60" alt="pit_12"/>
       </map>
 
   </body>

@@ -11,8 +11,14 @@ var sound_click;
 var sound_intro;
 var soundoff;
 
+window.onload = function() {
+  init();
+};
+
 function init()
 {
+    registerEventHandlers();
+
     license_init("license", "screen");
     document.getElementsByClassName("one-player")[0].innerHTML = getMessage("one_player");
     document.getElementsByClassName("two-player")[0].innerHTML = getMessage("two_player");
@@ -65,6 +71,94 @@ function init()
     }
 
     scaleBody(document.getElementsByTagName("body")[0], 720);
+}
+
+function registerEventHandlers()
+{
+    document
+      .getElementById("toggle_left")
+      .addEventListener('click', function() { toggleNumberOfPlayers(); }, false );
+    document
+      .getElementById("three-marbles")
+      .addEventListener('click', function() { setMarbleCount(3); }, false );
+    document
+      .getElementById("four-marbles")
+      .addEventListener('click', function() { setMarbleCount(4); }, false );
+    document
+      .getElementById("five-marbles")
+      .addEventListener('click', function() { setMarbleCount(5); }, false );
+    document
+      .getElementById("six-marbles")
+      .addEventListener('click', function() { setMarbleCount(6); }, false );
+    document
+      .getElementById("on")
+      .addEventListener('click', function() { setSound(1); }, false );
+    document
+      .getElementById("off")
+      .addEventListener('click', function() { setSound(0); }, false );
+    document
+      .getElementById("start-button")
+      .addEventListener('click', function() { startGamePressed(); }, false );
+    document
+      .getElementById("restart")
+      .addEventListener('click', function() { restartClicked(); }, false );
+    document
+      .getElementById("settings")
+      .addEventListener('click', function() { settingsClicked(); }, false );
+    document
+      .getElementById("help")
+      .addEventListener('click', function() { helpClicked(); }, false );
+    document
+      .getElementById("close-settings")
+      .addEventListener('click', function() { closeSettings(); }, false );
+    document
+      .getElementById("sound-on")
+      .addEventListener('click', function() { setSoundGame(1); }, false );
+    document
+      .getElementById("sound-off")
+      .addEventListener('click', function() { setSoundGame(0); }, false );
+    document
+      .getElementById("commentary_on")
+      .addEventListener('click', function() { setCommentary(1); }, false );
+    document
+      .getElementById("commentary_off")
+      .addEventListener('click', function() { setCommentary(0); }, false );
+    document
+      .getElementById("help-border-x")
+      .addEventListener('click', function() { closeHelp(); }, false );
+    document
+      .getElementById("option-button-no")
+      .addEventListener('click', function() { setOption(0); }, false );
+    document
+      .getElementById("option-button-yes")
+      .addEventListener('click', function() { setOption(1); }, false );
+    document
+      .getElementById("restart-button-no")
+      .addEventListener('click', function() { setRestart(0); }, false );
+    document
+      .getElementById("restart-button-yes")
+      .addEventListener('click', function() { setRestart(1); }, false );
+    document
+      .getElementById("player1-score")
+      .addEventListener('click', function() { player1TabClicked(); }, false );
+    document
+      .getElementById("player2-score")
+      .addEventListener('click', function() { player2TabClicked(); }, false );
+
+    var makePitClickHandler = function(pitNo) {
+        return function() {
+            pitSelected(pitNo,true);
+        };
+    };
+
+    for( var pitNo=0; pitNo<13; pitNo++ ) {
+        if (pitNo!=6) {
+            document
+              .getElementById("pit_"+pitNo)
+              .addEventListener('click', makePitClickHandler(pitNo), false );
+        }
+    }
+
 }
 
 function setBeadButtons(num)
