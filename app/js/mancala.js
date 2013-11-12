@@ -11,7 +11,8 @@ var sound_click;
 var sound_intro;
 var soundoff;
 
-function init(){
+function init()
+{
     license_init("license", "screen");
     document.getElementsByClassName("one-player")[0].innerHTML = getMessage("one_player");
     document.getElementsByClassName("two-player")[0].innerHTML = getMessage("two_player");
@@ -30,23 +31,27 @@ function init(){
     sound_click = new gamesound("sound-buttonclick");
 
     var beadnumber = sessionStorage.getItem("com.intel.otc.mancala.beadnumber");
-    if(!beadnumber) {
+    if(!beadnumber)
+    {
         sessionStorage.setItem("com.intel.otc.mancala.beadnumber", 4);
     }
 
     setBeadButtons(sessionStorage.getItem("com.intel.otc.mancala.beadnumber"));
     var sound = sessionStorage.getItem("com.intel.otc.mancala.sound");
-    if(!sound) {
+    if(!sound)
+    {
         sessionStorage.setItem("com.intel.otc.mancala.sound", 1);
     }
 
     setSoundButtons(sessionStorage.getItem("com.intel.otc.mancala.sound"));
     var playercount=sessionStorage.getItem("com.intel.otc.mancala.playercount");
-    if(!playercount) {
+    if(!playercount)
+    {
         sessionStorage.setItem("com.intel.otc.mancala.playercount", 1);
     }
 
-    if(sessionStorage.getItem("com.intel.otc.mancala.playercount")==2) {
+    if(sessionStorage.getItem("com.intel.otc.mancala.playercount")==2)
+    {
         var toggle=document.getElementById("toggle_left");
         toggle.setAttribute("id", "toggle_right");
         var p1=document.getElementById("one-player_toggleleft");
@@ -62,95 +67,101 @@ function init(){
     scaleBody(document.getElementsByTagName("body")[0], 720);
 }
 
-function setBeadButtons(num){
+function setBeadButtons(num)
+{
     var button3 = (document.getElementById("three-marbles") ? document.getElementById("three-marbles")  : document.getElementById("three-marbles_active"));
     var button4 = (document.getElementById("four-marbles") ? document.getElementById("four-marbles")  : document.getElementById("four-marbles_active"));
     var button5 = (document.getElementById("five-marbles") ? document.getElementById("five-marbles")  : document.getElementById("five-marbles_active"));
     var button6 = (document.getElementById("six-marbles") ? document.getElementById("six-marbles")  : document.getElementById("six-marbles_active"));
 
-    if(num == 3){
-    button3.setAttribute("id", "three-marbles_active");
-    button4.setAttribute("id", "four-marbles");
-    button5.setAttribute("id", "five-marbles");
-    button6.setAttribute("id", "six-marbles");
+    if(num == 3)
+    {
+        button3.setAttribute("id", "three-marbles_active");
+        button4.setAttribute("id", "four-marbles");
+        button5.setAttribute("id", "five-marbles");
+        button6.setAttribute("id", "six-marbles");
     }
     else if(num == 5)
     {
-    button3.setAttribute("id", "three-marbles");
-    button4.setAttribute("id", "four-marbles");
-    button5.setAttribute("id", "five-marbles_active");
-    button6.setAttribute("id", "six-marbles");
+        button3.setAttribute("id", "three-marbles");
+        button4.setAttribute("id", "four-marbles");
+        button5.setAttribute("id", "five-marbles_active");
+        button6.setAttribute("id", "six-marbles");
     }
     else if(num == 6)
     {
-    button3.setAttribute("id", "three-marbles");
-    button4.setAttribute("id", "four-marbles");
-    button5.setAttribute("id", "five-marbles");
-    button6.setAttribute("id", "six-marbles_active");
+        button3.setAttribute("id", "three-marbles");
+        button4.setAttribute("id", "four-marbles");
+        button5.setAttribute("id", "five-marbles");
+        button6.setAttribute("id", "six-marbles_active");
     }
     else
     {
-    button3.setAttribute("id", "three-marbles");
-    button4.setAttribute("id", "four-marbles_active");
-    button5.setAttribute("id", "five-marbles");
-    button6.setAttribute("id", "six-marbles");
+        button3.setAttribute("id", "three-marbles");
+        button4.setAttribute("id", "four-marbles_active");
+        button5.setAttribute("id", "five-marbles");
+        button6.setAttribute("id", "six-marbles");
     }
 }
 
-function setSoundButtons(toggle){
+function setSoundButtons(toggle)
+{
     var on = (document.getElementById("on") ? document.getElementById("on")  : document.getElementById("on_active"));
     var off = (document.getElementById("off") ? document.getElementById("off")  : document.getElementById("off_active"));
 
-    if(toggle == 0){
-    soundoff = true;
-    on.setAttribute("id", "on");
-    off.setAttribute("id", "off_active");
+    if(toggle == 0)
+    {
+        soundoff = true;
+        on.setAttribute("id", "on");
+        off.setAttribute("id", "off_active");
     }
     else
     {
-    sound_intro.play();
-    soundoff = false;
-    on.setAttribute("id", "on_active");
-    off.setAttribute("id", "off");
+        sound_intro.play();
+        soundoff = false;
+        on.setAttribute("id", "on_active");
+        off.setAttribute("id", "off");
     }
 }
 
-function toggleNumberOfPlayers(){
+function toggleNumberOfPlayers()
+{
     if(!soundoff) sound_click.play();
 
     var toggle=document.getElementById("toggle_left");
     if(toggle)
     {
-    toggle.setAttribute("id", "toggle_right");
-    var p1=document.getElementById("one-player_toggleleft");
-    p1.setAttribute("id", "one-player_toggleright");
-    var p2=document.getElementById("two-player_toggleleft");
-    p2.setAttribute("id", "two-player_toggleright");
-    var p1icon= document.getElementById("one-player-icon_toggleleft");
-    p1icon.setAttribute("id", "one-player-icon_toggleright");
-    var p2icon= document.getElementById("two-player-icon_toggleleft");
-    p2icon.setAttribute("id", "two-player-icon_toggleright");
-    sessionStorage.removeItem("com.intel.otc.mancala.playercount");
-    sessionStorage.setItem("com.intel.otc.mancala.playercount", 2);
+        toggle.setAttribute("id", "toggle_right");
+        var p1=document.getElementById("one-player_toggleleft");
+        p1.setAttribute("id", "one-player_toggleright");
+        var p2=document.getElementById("two-player_toggleleft");
+        p2.setAttribute("id", "two-player_toggleright");
+        var p1icon= document.getElementById("one-player-icon_toggleleft");
+        p1icon.setAttribute("id", "one-player-icon_toggleright");
+        var p2icon= document.getElementById("two-player-icon_toggleleft");
+        p2icon.setAttribute("id", "two-player-icon_toggleright");
+        sessionStorage.removeItem("com.intel.otc.mancala.playercount");
+        sessionStorage.setItem("com.intel.otc.mancala.playercount", 2);
     }
     else
     {
-    toggle=document.getElementById("toggle_right");
-    toggle.setAttribute("id", "toggle_left");
-    var p1=document.getElementById("one-player_toggleright");
-    p1.setAttribute("id", "one-player_toggleleft");
-    var p2=document.getElementById("two-player_toggleright");
-    p2.setAttribute("id", "two-player_toggleleft");
-    var p1icon= document.getElementById("one-player-icon_toggleright");
-    p1icon.setAttribute("id", "one-player-icon_toggleleft");
-    var p2icon= document.getElementById("two-player-icon_toggleright");
-    p2icon.setAttribute("id", "two-player-icon_toggleleft");
-    sessionStorage.removeItem("com.intel.otc.mancala.playercount");
-    sessionStorage.setItem("com.intel.otc.mancala.playercount", 1);
+        toggle=document.getElementById("toggle_right");
+        toggle.setAttribute("id", "toggle_left");
+        var p1=document.getElementById("one-player_toggleright");
+        p1.setAttribute("id", "one-player_toggleleft");
+        var p2=document.getElementById("two-player_toggleright");
+        p2.setAttribute("id", "two-player_toggleleft");
+        var p1icon= document.getElementById("one-player-icon_toggleright");
+        p1icon.setAttribute("id", "one-player-icon_toggleleft");
+        var p2icon= document.getElementById("two-player-icon_toggleright");
+        p2icon.setAttribute("id", "two-player-icon_toggleleft");
+        sessionStorage.removeItem("com.intel.otc.mancala.playercount");
+        sessionStorage.setItem("com.intel.otc.mancala.playercount", 1);
     }
 }
 
-function startGamePressed(){
+function startGamePressed()
+{
     if(!soundoff) sound_click.play();
 
     document.getElementById("screen").style.display="none";
@@ -158,7 +169,8 @@ function startGamePressed(){
     document.getElementById("screen-game").style.display="inline";
 }
 
-function setMarbleCount(number){
+function setMarbleCount(number)
+{
     if(!soundoff) sound_click.play();
 
     sessionStorage.removeItem("com.intel.otc.mancala.beadnumber");
@@ -166,7 +178,8 @@ function setMarbleCount(number){
     setBeadButtons(number);
 }
 
-function setSound(value){
+function setSound(value)
+{
     if(!soundoff) sound_click.play();
 
     sessionStorage.removeItem("com.intel.otc.mancala.sound");
@@ -212,87 +225,93 @@ location[13] = {x:865, y:30};
 var timers= new Array();
 var timerCount;
 var gameinit = false;
-function initGame(){
-    if(!gameinit){
-    document.getElementsByClassName("settings-title")[0].innerHTML = getMessage("settings_title");
-    document.getElementsByClassName("settings-return_text")[0].innerHTML = getMessage("return_to_game");
-    document.getElementsByClassName("settings-sound")[0].innerHTML = getMessage("sound_fx");
-    document.getElementById("sound-on").innerHTML = getMessage("button_on");
-    document.getElementById("sound-off").innerHTML = getMessage("button_off");
-    document.getElementsByClassName("commentary")[0].innerHTML = getMessage("settings_commentary");
-    document.getElementById("commentary_on").innerHTML = getMessage("button_on");
-    document.getElementById("commentary_off").innerHTML = getMessage("button_off");
-    document.getElementsByClassName("help-title")[0].innerHTML = getMessage("help_title");
-    document.getElementsByClassName("help-return_text")[0].innerHTML = getMessage("return_to_game");
-    document.getElementsByClassName("option-buttons no")[0].innerHTML = getMessage("no_button");
-    document.getElementsByClassName("option-buttons yes")[0].innerHTML = getMessage("yes_button");
-    document.getElementsByClassName("restart-buttons no")[0].innerHTML = getMessage("no_button");
-    document.getElementsByClassName("restart-buttons yes")[0].innerHTML = getMessage("yes_button");
-    document.getElementById("player1-score_text").innerHTML = getMessage("player_1_score")+" 0";
-    document.getElementsByClassName("endgame-start-new")[0].innerHTML = getMessage("new_game");
-    document.getElementsByClassName("restart-start-new")[0].innerHTML = getMessage("new_game");
+function initGame()
+{
+    if(!gameinit)
+    {
+        document.getElementsByClassName("settings-title")[0].innerHTML = getMessage("settings_title");
+        document.getElementsByClassName("settings-return_text")[0].innerHTML = getMessage("return_to_game");
+        document.getElementsByClassName("settings-sound")[0].innerHTML = getMessage("sound_fx");
+        document.getElementById("sound-on").innerHTML = getMessage("button_on");
+        document.getElementById("sound-off").innerHTML = getMessage("button_off");
+        document.getElementsByClassName("commentary")[0].innerHTML = getMessage("settings_commentary");
+        document.getElementById("commentary_on").innerHTML = getMessage("button_on");
+        document.getElementById("commentary_off").innerHTML = getMessage("button_off");
+        document.getElementsByClassName("help-title")[0].innerHTML = getMessage("help_title");
+        document.getElementsByClassName("help-return_text")[0].innerHTML = getMessage("return_to_game");
+        document.getElementsByClassName("option-buttons no")[0].innerHTML = getMessage("no_button");
+        document.getElementsByClassName("option-buttons yes")[0].innerHTML = getMessage("yes_button");
+        document.getElementsByClassName("restart-buttons no")[0].innerHTML = getMessage("no_button");
+        document.getElementsByClassName("restart-buttons yes")[0].innerHTML = getMessage("yes_button");
+        document.getElementById("player1-score_text").innerHTML = getMessage("player_1_score")+" 0";
+        document.getElementsByClassName("endgame-start-new")[0].innerHTML = getMessage("new_game");
+        document.getElementsByClassName("restart-start-new")[0].innerHTML = getMessage("new_game");
 
-    document.getElementsByClassName("settings-border-x")[0].style.cursor = "pointer";
-    document.getElementsByClassName("help-border-x")[0].style.cursor = "pointer";
-    document.getElementsByClassName("settings-title")[0].style.cursor = "default";
-    document.getElementsByClassName("settings-return_text")[0].style.cursor = "default";
-    document.getElementsByClassName("settings-sound")[0].style.cursor = "default";
-    document.getElementsByClassName("commentary")[0].style.cursor = "default";
-    document.getElementsByClassName("help-title")[0].style.cursor = "default";
-    document.getElementsByClassName("help-return_text")[0].style.cursor = "default";
-    document.getElementById("player1-score_text").style.cursor = "default";
-    document.getElementsByClassName("endgame-start-new")[0].style.cursor = "default";
-    document.getElementById("player1-score_text").style.cursor = "default";
-    document.getElementById("player2-score_text").style.cursor = "default";
-    document.getElementById("endgame-wintext").style.cursor = "default";
-    document.getElementsByClassName("restart-start-new")[0].style.cursor = "default";
-    document.getElementById("pit0_count").style.cursor = "default";
-    document.getElementById("pit1_count").style.cursor = "default";
-    document.getElementById("pit2_count").style.cursor = "default";
-    document.getElementById("pit3_count").style.cursor = "default";
-    document.getElementById("pit4_count").style.cursor = "default";
-    document.getElementById("pit5_count").style.cursor = "default";
-    document.getElementById("pit7_count").style.cursor = "default";
-    document.getElementById("pit8_count").style.cursor = "default";
-    document.getElementById("pit9_count").style.cursor = "default";
-    document.getElementById("pit10_count").style.cursor = "default";
-    document.getElementById("pit11_count").style.cursor = "default";
-    document.getElementById("pit12_count").style.cursor = "default";
-    document.getElementById("instructions").style.cursor = "default";
+        document.getElementsByClassName("settings-border-x")[0].style.cursor = "pointer";
+        document.getElementsByClassName("help-border-x")[0].style.cursor = "pointer";
+        document.getElementsByClassName("settings-title")[0].style.cursor = "default";
+        document.getElementsByClassName("settings-return_text")[0].style.cursor = "default";
+        document.getElementsByClassName("settings-sound")[0].style.cursor = "default";
+        document.getElementsByClassName("commentary")[0].style.cursor = "default";
+        document.getElementsByClassName("help-title")[0].style.cursor = "default";
+        document.getElementsByClassName("help-return_text")[0].style.cursor = "default";
+        document.getElementById("player1-score_text").style.cursor = "default";
+        document.getElementsByClassName("endgame-start-new")[0].style.cursor = "default";
+        document.getElementById("player1-score_text").style.cursor = "default";
+        document.getElementById("player2-score_text").style.cursor = "default";
+        document.getElementById("endgame-wintext").style.cursor = "default";
+        document.getElementsByClassName("restart-start-new")[0].style.cursor = "default";
+        document.getElementById("pit0_count").style.cursor = "default";
+        document.getElementById("pit1_count").style.cursor = "default";
+        document.getElementById("pit2_count").style.cursor = "default";
+        document.getElementById("pit3_count").style.cursor = "default";
+        document.getElementById("pit4_count").style.cursor = "default";
+        document.getElementById("pit5_count").style.cursor = "default";
+        document.getElementById("pit7_count").style.cursor = "default";
+        document.getElementById("pit8_count").style.cursor = "default";
+        document.getElementById("pit9_count").style.cursor = "default";
+        document.getElementById("pit10_count").style.cursor = "default";
+        document.getElementById("pit11_count").style.cursor = "default";
+        document.getElementById("pit12_count").style.cursor = "default";
+        document.getElementById("instructions").style.cursor = "default";
 
-    sound_fillpit = new gamesound("sound-fillpit");
-    sound_bonus = new gamesound('sound-bonus');
-    sound_button_click = new gamesound('sound-buttonclick');
-    sound_gamewin = new gamesound('sound-gamewin');
-    sound_pickup = new gamesound('sound-pickup');
-    sound_pointscore = new gamesound('sound-pointscore');
-    sound_singlepiecefullpit = new gamesound('sound-singlepiecefullpit');
-    sound_singlepieceemptypit = new gamesound('sound-singlepieceemptypit');
-    sound_singlepieceswoosh = new gamesound('sound-singlepieceswoosh');
-    gameinit = true;
+        sound_fillpit = new gamesound("sound-fillpit");
+        sound_bonus = new gamesound('sound-bonus');
+        sound_button_click = new gamesound('sound-buttonclick');
+        sound_gamewin = new gamesound('sound-gamewin');
+        sound_pickup = new gamesound('sound-pickup');
+        sound_pointscore = new gamesound('sound-pointscore');
+        sound_singlepiecefullpit = new gamesound('sound-singlepiecefullpit');
+        sound_singlepieceemptypit = new gamesound('sound-singlepieceemptypit');
+        sound_singlepieceswoosh = new gamesound('sound-singlepieceswoosh');
+        gameinit = true;
     }
     resetBoard();
 }
 
-function settingsClicked(){
+function settingsClicked()
+{
     if(!soundoff) sound_button_click.play();
     var dialog = document.getElementById("settings-dialog").style.opacity= 1;
     document.getElementById("settings-dialog").style.display="inline";
     document.getElementById("smoke-screen").style.display="inline";
 }
 
-function helpClicked(){
+function helpClicked()
+{
     if(!soundoff) sound_button_click.play();
     var dialog = document.getElementById("help-dialog").style.opacity= 1;
     document.getElementById("help-dialog").style.display="inline";
     document.getElementById("smoke-screen").style.display="inline";
 }
 
-function player1TabClicked(){
+function player1TabClicked()
+{
     if(!soundoff) sound_button_click.play();
 }
 
-function player2TabClicked(){
+function player2TabClicked()
+{
     if(!soundoff) sound_button_click.play();
 }
 
@@ -311,37 +330,41 @@ function getSound()
     setSoundButtonsGame(value);
 }
 
-function setSoundButtonsGame(toggle){
+function setSoundButtonsGame(toggle)
+{
     var on = (document.getElementById("sound-on") ? document.getElementById("sound-on")  : document.getElementById("sound-on_active"));
     var off = (document.getElementById("sound-off") ? document.getElementById("sound-off")  : document.getElementById("sound-off_active"));
 
-    if(toggle == 0){
-    on.setAttribute("id", "sound-on");
-    off.setAttribute("id", "sound-off_active");
+    if(toggle == 0)
+    {
+        on.setAttribute("id", "sound-on");
+        off.setAttribute("id", "sound-off_active");
     }
     else
     {
-    on.setAttribute("id", "sound-on_active");
-    off.setAttribute("id", "sound-off");
+        on.setAttribute("id", "sound-on_active");
+        off.setAttribute("id", "sound-off");
     }
 }
 
-function setCommentaryButtons(toggle){
+function setCommentaryButtons(toggle)
+{
     var on = (document.getElementById("commentary_on") ? document.getElementById("commentary_on")  : document.getElementById("commentary_on_active"));
     var off = (document.getElementById("commentary_off") ? document.getElementById("commentary_off")  : document.getElementById("commentary_off_active"));
 
-    if(toggle == 0){
-    on.setAttribute("id", "commentary_on");
-    off.setAttribute("id", "commentary_off_active");
-    document.getElementById("logo").style.zIndex=3;
-    document.getElementById("logo_blank").style.zIndex=1;
+    if(toggle == 0)
+    {
+        on.setAttribute("id", "commentary_on");
+        off.setAttribute("id", "commentary_off_active");
+        document.getElementById("logo").style.zIndex=3;
+        document.getElementById("logo_blank").style.zIndex=1;
     }
     else
     {
-    on.setAttribute("id", "commentary_on_active");
-    off.setAttribute("id", "commentary_off");
-    document.getElementById("logo").style.zIndex=1;
-    document.getElementById("logo_blank").style.zIndex=2;
+        on.setAttribute("id", "commentary_on_active");
+        off.setAttribute("id", "commentary_off");
+        document.getElementById("logo").style.zIndex=1;
+        document.getElementById("logo_blank").style.zIndex=2;
     }
 }
 
@@ -364,59 +387,59 @@ function drawText(pit, beadnumber)
     switch(pit)
     {
     case 0:
-    document.getElementById("pit0_count").innerText=beadnumber;
-    document.getElementById("pit0_count").style.opacity = 1;
-    break;
+        document.getElementById("pit0_count").innerText=beadnumber;
+        document.getElementById("pit0_count").style.opacity = 1;
+        break;
     case 1:
-    document.getElementById("pit1_count").innerText=beadnumber;
-    document.getElementById("pit1_count").style.opacity = 1;
-    break;
+        document.getElementById("pit1_count").innerText=beadnumber;
+        document.getElementById("pit1_count").style.opacity = 1;
+        break;
     case 2:
-    document.getElementById("pit2_count").innerText=beadnumber;
-    document.getElementById("pit2_count").style.opacity = 1;
-    break;
+        document.getElementById("pit2_count").innerText=beadnumber;
+        document.getElementById("pit2_count").style.opacity = 1;
+        break;
     case 3:
-    document.getElementById("pit3_count").innerText=beadnumber;
-    document.getElementById("pit3_count").style.opacity = 1;
-    break;
+        document.getElementById("pit3_count").innerText=beadnumber;
+        document.getElementById("pit3_count").style.opacity = 1;
+        break;
     case 4:
-    document.getElementById("pit4_count").innerText=beadnumber;
-    document.getElementById("pit4_count").style.opacity = 1;
-    break;
+        document.getElementById("pit4_count").innerText=beadnumber;
+        document.getElementById("pit4_count").style.opacity = 1;
+        break;
     case 5:
-    document.getElementById("pit5_count").innerText=beadnumber;
-    document.getElementById("pit5_count").style.opacity = 1;
-    break;
+        document.getElementById("pit5_count").innerText=beadnumber;
+        document.getElementById("pit5_count").style.opacity = 1;
+        break;
     case 6:
-    document.getElementById("player1-score_text").innerHTML = getMessage("player_1_score")+" "+beadnumber;
-    break;
+        document.getElementById("player1-score_text").innerHTML = getMessage("player_1_score")+" "+beadnumber;
+        break;
     case 12:
-    document.getElementById("pit7_count").innerText=beadnumber;
-    document.getElementById("pit7_count").style.opacity = 1;
-    break;
+        document.getElementById("pit7_count").innerText=beadnumber;
+        document.getElementById("pit7_count").style.opacity = 1;
+        break;
     case 11:
-    document.getElementById("pit8_count").innerText=beadnumber;
-    document.getElementById("pit8_count").style.opacity = 1;
-    break;
+        document.getElementById("pit8_count").innerText=beadnumber;
+        document.getElementById("pit8_count").style.opacity = 1;
+        break;
     case 10:
-    document.getElementById("pit9_count").innerText=beadnumber;
-    document.getElementById("pit9_count").style.opacity = 1;
-    break;
+        document.getElementById("pit9_count").innerText=beadnumber;
+        document.getElementById("pit9_count").style.opacity = 1;
+        break;
     case 9:
-    document.getElementById("pit10_count").innerText=beadnumber;
-    document.getElementById("pit10_count").style.opacity = 1;
-    break;
+        document.getElementById("pit10_count").innerText=beadnumber;
+        document.getElementById("pit10_count").style.opacity = 1;
+        break;
     case 8:
-    document.getElementById("pit11_count").innerText=beadnumber;
-    document.getElementById("pit11_count").style.opacity = 1;
-    break;
+        document.getElementById("pit11_count").innerText=beadnumber;
+        document.getElementById("pit11_count").style.opacity = 1;
+        break;
     case 7:
-    document.getElementById("pit12_count").innerText=beadnumber;
-    document.getElementById("pit12_count").style.opacity = 1;
-    break;
+        document.getElementById("pit12_count").innerText=beadnumber;
+        document.getElementById("pit12_count").style.opacity = 1;
+        break;
     case 13:
-    document.getElementById("player2-score_text").innerHTML = getMessage("player_2_score")+" "+beadnumber;
-    break;
+        document.getElementById("player2-score_text").innerHTML = getMessage("player_2_score")+" "+beadnumber;
+        break;
     }
 }
 
@@ -426,38 +449,39 @@ function drawBeads(pit, beads)
     var size = 34;
     for(var row=1; row<=3; row++)
     {
-    for(var col=1; col<=2; col++ )
-    {
-        if(count != 0)
+        for(var col=1; col<=2; col++ )
         {
-        var phi = (Math.random()*2*3.14);
-        var rho = Math.random();
-        var x = Math.sqrt(rho)*Math.cos(phi)*15/2;
-        var y = Math.sqrt(rho)*Math.sin(phi)*25/2;
-        var beadImg = document.createElement("img");
-        beadImg.setAttribute('src', 'images/MANCALA-game_marble.png');
-        beadImg.setAttribute('alt', 'bead');
-        beadImg.setAttribute('height', 34);
-        beadImg.setAttribute('width', 34);
-        beadImg.setAttribute('class', ('beads beadsInPit'+pit));
-        beadImg.style.left = ((location[pit].x+x+col*30)+"px");
-        beadImg.style.top = ((location[pit].y+y+row*30)+"px");
-        var container = document.getElementById("center");
-        container.appendChild(beadImg);
-        count--;
+            if(count != 0)
+            {
+                var phi = (Math.random()*2*3.14);
+                var rho = Math.random();
+                var x = Math.sqrt(rho)*Math.cos(phi)*15/2;
+                var y = Math.sqrt(rho)*Math.sin(phi)*25/2;
+                var beadImg = document.createElement("img");
+                beadImg.setAttribute('src', 'images/MANCALA-game_marble.png');
+                beadImg.setAttribute('alt', 'bead');
+                beadImg.setAttribute('height', 34);
+                beadImg.setAttribute('width', 34);
+                beadImg.setAttribute('class', ('beads beadsInPit'+pit));
+                beadImg.style.left = ((location[pit].x+x+col*30)+"px");
+                beadImg.style.top = ((location[pit].y+y+row*30)+"px");
+                var container = document.getElementById("center");
+                container.appendChild(beadImg);
+                count--;
+            }
         }
-    }
     }
 }
 
-function clearBoard(){
+function clearBoard()
+{
     //clear beads
     var center = document.getElementById('center');
     var beads = document.getElementsByClassName('beads');
     while(beads.length > 0)
     {
-    center.removeChild(beads[0]);
-    beads = document.getElementsByClassName('beads');
+        center.removeChild(beads[0]);
+        beads = document.getElementsByClassName('beads');
     }
 
     var beadNumber = parseInt(getBeadNumber());
@@ -472,13 +496,15 @@ function clearBoard(){
         {
             document.getElementById("player2-score_text").innerHTML = getMessage("player_2_score")+" 0";
         }
-        else{
+        else
+        {
             document.getElementById("pit"+holes+"_count").innerText= beadNumber;
         }
     }
 }
 
-function moveBead(fromPit, toPit){
+function moveBead(fromPit, toPit)
+{
     timerCount--;
     var beadsAtSelection = document.getElementsByClassName("beadsInPit"+fromPit);
     if(!beadsAtSelection)return;
@@ -524,12 +550,13 @@ function drawPit(pitnumber, beadnumber)
     drawText(pitnumber, beadnumber);
 }
 
-function initBoard(){
+function initBoard()
+{
     soundoff = (sessionStorage.getItem("com.intel.otc.mancala.sound") == 0 ? true : false);
     if(!soundoff) sound_fillpit.play();
     for(hole in pits)
     {
-    drawPit(hole, pits[hole]);
+        drawPit(hole, pits[hole]);
     }
 }
 
@@ -540,90 +567,90 @@ function isGameEnd()
 
     for(var cnt = 0; cnt < playerOneStore; cnt++)
     {
-    if(pits[cnt] > 0)
-    {
-        isEmpty = false;
-        break;
-    }
+        if(pits[cnt] > 0)
+        {
+            isEmpty = false;
+            break;
+        }
     }
 
     if(isEmpty)
     {
-    var finalsteal = 0;
-    for(var cnt = 7; cnt < playerTwoStore; cnt++)
-    {
-        if(pits[cnt] > 0)
+        var finalsteal = 0;
+        for(var cnt = 7; cnt < playerTwoStore; cnt++)
         {
-        finalsteal+=pits[cnt];
-        while(pits[cnt] > 0)
+            if(pits[cnt] > 0)
+            {
+              finalsteal+=pits[cnt];
+              while(pits[cnt] > 0)
+              {
+                  moveBead(cnt, playerTwoStore);
+              }
+              if(!soundoff) sound_bonus.play();
+              drawText(cnt, 0);
+            }
+        }
+
+        pits[playerTwoStore]+= finalsteal;
+        drawText(playerTwoStore, pits[playerTwoStore]);
+
+
+        if(pits[playerOneStore] > pits[playerTwoStore])
         {
-            moveBead(cnt, playerTwoStore);
+            winner = 0;
         }
-        if(!soundoff) sound_bonus.play();
-        drawText(cnt, 0);
+        else if(pits[playerOneStore] < pits[playerTwoStore])
+        {
+            winner = 1;
         }
-    }
-
-    pits[playerTwoStore]+= finalsteal;
-    drawText(playerTwoStore, pits[playerTwoStore]);
-
-
-    if(pits[playerOneStore] > pits[playerTwoStore])
-    {
-        winner = 0;
-    }
-    else if(pits[playerOneStore] < pits[playerTwoStore])
-    {
-        winner = 1;
-    }
-    else if(pits[playerOneStore] === pits[playerTwoStore])
-    {
-        winner = 2;
-    }
+        else if(pits[playerOneStore] === pits[playerTwoStore])
+        {
+            winner = 2;
+        }
     }
 
     isEmpty = true;
     for(var cnt = (playerOneStore+1); cnt < playerTwoStore; cnt++)
     {
-    if(pits[cnt] != 0)
-    {
-        isEmpty = false;
-        break;
-    }
+        if(pits[cnt] != 0)
+        {
+            isEmpty = false;
+            break;
+        }
     }
 
     if(isEmpty)
     {
-    var finalsteal = 0;
-    for(var cnt = 0; cnt < playerOneStore; cnt++)
-    {
-        if(pits[cnt] > 0)
+        var finalsteal = 0;
+        for(var cnt = 0; cnt < playerOneStore; cnt++)
         {
-            finalsteal+=pits[cnt];
-            while(pits[cnt] > 0)
+            if(pits[cnt] > 0)
             {
-                moveBead(cnt, 6);
-                if(!soundoff) sound_bonus.play();
+                finalsteal+=pits[cnt];
+                while(pits[cnt] > 0)
+                {
+                    moveBead(cnt, 6);
+                    if(!soundoff) sound_bonus.play();
+                }
+                drawText(cnt, 0);
             }
-            drawText(cnt, 0);
         }
-    }
 
-    pits[playerOneStore]+= finalsteal;
-    drawText(playerOneStore, pits[playerOneStore]);
+        pits[playerOneStore]+= finalsteal;
+        drawText(playerOneStore, pits[playerOneStore]);
 
-    if(pits[playerOneStore] > pits[playerTwoStore])
-    {
-        winner = 0;
-    }
-    else if(pits[playerOneStore] < pits[playerTwoStore])
-    {
-        winner = 1;
-    }
-    else if(pits[playerOneStore] === pits[playerTwoStore])
-    {
-       winner = 2;
-    }
+        if(pits[playerOneStore] > pits[playerTwoStore])
+        {
+            winner = 0;
+        }
+        else if(pits[playerOneStore] < pits[playerTwoStore])
+        {
+            winner = 1;
+        }
+        else if(pits[playerOneStore] === pits[playerTwoStore])
+        {
+           winner = 2;
+        }
     }
 
     return winner;
@@ -633,7 +660,7 @@ function isFreeTurn(num, stones)
 {
     if(num == playerOneStore || num == playerTwoStore)
     {
-    return false;
+        return false;
     }
 
     var mod = stones%13;
@@ -641,11 +668,11 @@ function isFreeTurn(num, stones)
 
     if(((player == 0) && (num < playerOneStore)) || (player == 1) && (num > 6 && num < playerTwoStore))
     {
-    difference= ((6+7*player)-num);
-    if(mod == difference)
-    {
-        return true;
-    }
+        difference= ((6+7*player)-num);
+        if(mod == difference)
+        {
+            return true;
+        }
     }
 
     return false;
@@ -655,11 +682,11 @@ function isValidSteal(playerPit)
 {
     if(((player == 0) && (playerPit < playerOneStore)) || ((player == 1) && (playerPit > playerOneStore && playerPit < playerTwoStore)))
     {
-    var otherside = 12-playerPit;
-    if((pits[otherside] > 0) && (pits[playerPit] == 1))
-    {
-        return true;
-    }
+        var otherside = 12-playerPit;
+        if((pits[otherside] > 0) && (pits[playerPit] == 1))
+        {
+            return true;
+        }
     }
     return false;
 }
@@ -667,28 +694,29 @@ function isValidSteal(playerPit)
 function stealStones(end)
 {
     var otherside = 12-end;
-    for(var x =0; x < pits[otherside]; x++){
-    if(player == 0)
+    for(var x =0; x < pits[otherside]; x++)
     {
-        var object = window.setTimeout('moveBead('+otherside+', '+playerOneStore+')', timerCount*400);
-        timers[timerCount++]= object;
-    }
-    else
-    {
-        var object = window.setTimeout('moveBead('+otherside+', '+playerTwoStore+')', timerCount*400);
-        timers[timerCount++]= object;
-    }
+        if(player == 0)
+        {
+            var object = window.setTimeout('moveBead('+otherside+', '+playerOneStore+')', timerCount*400);
+            timers[timerCount++]= object;
+        }
+        else
+        {
+            var object = window.setTimeout('moveBead('+otherside+', '+playerTwoStore+')', timerCount*400);
+            timers[timerCount++]= object;
+        }
     }
 
     if(player == 0)
     {
-    var object = window.setTimeout('moveBead('+end+', '+playerOneStore+')', timerCount*400);
-    timers[timerCount++]= object;
+        var object = window.setTimeout('moveBead('+end+', '+playerOneStore+')', timerCount*400);
+        timers[timerCount++]= object;
     }
     else
     {
-    var object = window.setTimeout('moveBead('+end+', '+playerTwoStore+')', timerCount*400);
-    timers[timerCount++]= object;
+        var object = window.setTimeout('moveBead('+end+', '+playerTwoStore+')', timerCount*400);
+        timers[timerCount++]= object;
     }
 
     var turndelay = pits[otherside]+1;
@@ -704,11 +732,11 @@ function checkStealState(end)
     var steal = 0;
     if(((player == 0) && (end < playerOneStore)) || (player == 1) && (end > playerOneStore && end < playerTwoStore))
     {
-    if(isValidSteal(end))
-    {
-        stealStones(end);
-        return;
-    }
+        if(isValidSteal(end))
+        {
+            stealStones(end);
+            return;
+        }
     }
     changeTurns();
 }
@@ -719,7 +747,7 @@ function getBeadNumber()
 
     if((beads != null) && (beads > 0 && beads < 10))
     {
-    return beads;
+        return beads;
     }
     sessionStorage.setItem("com.intel.otc.mancala.beadnumber", 6);
     return 6;
@@ -728,10 +756,12 @@ function getBeadNumber()
 var inPlay = false;
 function pitSelected(num, isHuman)
 {
-    if(inPlay && isHuman){
+    if(inPlay && isHuman)
+    {
         return;
     }
-    else if(isHuman && !inPlay){
+    else if(isHuman && !inPlay)
+    {
         inPlay = true;
     }
 
@@ -750,7 +780,8 @@ function pitSelected(num, isHuman)
 
     if(stones == 0)
     {
-        if((player==1) && (sessionStorage.getItem("com.intel.otc.mancala.playercount")==1)){
+        if((player==1) && (sessionStorage.getItem("com.intel.otc.mancala.playercount")==1))
+        {
             pitSelected(computerTry++, false);
         }
         else
@@ -769,7 +800,8 @@ function pitSelected(num, isHuman)
         setHighlight();
         inPlay = false;
     }
-    else{
+    else
+    {
         document.getElementById("instructions").innerHTML= getMessage("player_good_choice");
         document.getElementById("pit5").style.opacity=0;
         document.getElementById("pit4").style.opacity=0;
@@ -787,115 +819,120 @@ function pitSelected(num, isHuman)
         if(!soundoff) sound_pickup.play();
         for(stones; stones > 0; stones--)
         {
-        if((player == 0) && (start == playerTwoStore))
-        {
-            start = 0;
-        }
-        else if ((player == 1) && (start == playerOneStore))
-        {
-            start = 7;
-        }
+            if((player == 0) && (start == playerTwoStore))
+            {
+                start = 0;
+            }
+            else if ((player == 1) && (start == playerOneStore))
+            {
+                start = 7;
+            }
 
             var object = window.setTimeout('moveBead('+pitMoveFrom+', '+start+')', timerCount*400);
             timers[timerCount++]= object;
 
-        if(stones === 1)
-        {
-            //check if steal state if on last stone before moving to next pit in loop
-            window.setTimeout('checkStealState('+start+')', origStones*500);
-        }
+            if(stones === 1)
+            {
+                //check if steal state if on last stone before moving to next pit in loop
+                window.setTimeout('checkStealState('+start+')', origStones*500);
+            }
 
-        start++;
-        if(start == 14)
-        {
-            start = 0;
-        }
+            start++;
+            if(start == 14)
+            {
+                start = 0;
+            }
         }
     }
 }
 
-function changeTurns(){
+function changeTurns()
+{
     var winner = isGameEnd();
     if(winner == 0 || winner == 1)
     {
-    if(!soundoff) sound_gamewin.play();
-    document.getElementById("instructions").innerHTML=getMessage("game_over");
-    document.getElementById("endgame-wintext").innerHTML = (winner==0 ? getMessage("player_1_win") : getMessage("player_2_win"));
-    document.getElementById("endgame-dialog").style.display="inline";
-    document.getElementById("smoke-screen").style.display="inline";
-    inPlay = false;
-        return;
+        if(!soundoff) sound_gamewin.play();
+        document.getElementById("instructions").innerHTML=getMessage("game_over");
+        document.getElementById("endgame-wintext").innerHTML = (winner==0 ? getMessage("player_1_win") : getMessage("player_2_win"));
+        document.getElementById("endgame-dialog").style.display="inline";
+        document.getElementById("smoke-screen").style.display="inline";
+        inPlay = false;
+            return;
     }
     else if(winner == 2)
     {
-    if(!soundoff) sound_gamewin.play();
-    document.getElementById("endgame-wintext").innerHTML = getMessage("player_tie_win");
-    document.getElementById("instructions").innerHTML=getMessage("game_over");
-    document.getElementById("endgame-dialog").style.display="inline";
-    document.getElementById("smoke-screen").style.display="inline";
-    inPlay = false;
-        return;
-    }
-    else
-    {
-    if(keepThisPlayer)
-    {
-        document.getElementById("instructions").innerHTML=getMessage("second_turn");
-        setHighlight();
+        if(!soundoff) sound_gamewin.play();
+        document.getElementById("endgame-wintext").innerHTML = getMessage("player_tie_win");
+        document.getElementById("instructions").innerHTML=getMessage("game_over");
+        document.getElementById("endgame-dialog").style.display="inline";
+        document.getElementById("smoke-screen").style.display="inline";
         inPlay = false;
+            return;
     }
     else
     {
-        if(player == 1)
+        if(keepThisPlayer)
         {
-        player=0;
-        document.getElementById("turn-arrow_p1").style.opacity=1;
-        document.getElementById("turn-arrow_p2").style.opacity=0;
-        document.getElementById("instructions").innerHTML= getMessage("player_1_prompt");
+            document.getElementById("instructions").innerHTML=getMessage("second_turn");
+            setHighlight();
+            inPlay = false;
         }
         else
         {
-        player=1;
-        document.getElementById("turn-arrow_p1").style.opacity=0;
-        document.getElementById("turn-arrow_p2").style.opacity=1;
-        document.getElementById("instructions").innerHTML=getMessage("player_2_prompt");
+            if(player == 1)
+            {
+                player=0;
+                document.getElementById("turn-arrow_p1").style.opacity=1;
+                document.getElementById("turn-arrow_p2").style.opacity=0;
+                document.getElementById("instructions").innerHTML= getMessage("player_1_prompt");
+            }
+            else
+            {
+                player=1;
+                document.getElementById("turn-arrow_p1").style.opacity=0;
+                document.getElementById("turn-arrow_p2").style.opacity=1;
+                document.getElementById("instructions").innerHTML=getMessage("player_2_prompt");
+            }
+            inPlay = false;
+            setHighlight();
         }
-        inPlay = false;
-        setHighlight();
-    }
-    if((player==1) && (sessionStorage.getItem("com.intel.otc.mancala.playercount")==1)){
-        var computerChoice = Math.floor(Math.random()*5+7);
-        computerTry = 7;
-        setTimeout('pitSelected('+computerChoice+', false)', 500);
-    }
+        if((player==1) && (sessionStorage.getItem("com.intel.otc.mancala.playercount")==1))
+        {
+            var computerChoice = Math.floor(Math.random()*5+7);
+            computerTry = 7;
+            setTimeout('pitSelected('+computerChoice+', false)', 500);
+        }
     }
 }
 
-function restartClicked(){
-        document.getElementById("restart-dialog").style.display="inline";
-        document.getElementById("smoke-screen").style.display="inline";
+function restartClicked()
+{
+    document.getElementById("restart-dialog").style.display="inline";
+    document.getElementById("smoke-screen").style.display="inline";
 }
 
-function setRestart(value){
+function setRestart(value)
+{
     if(!soundoff) sound_button_click.play();
     if(value === 0)
     {
-    document.getElementById("restart-dialog").style.display="none";
-    document.getElementById("smoke-screen").style.display="none";
+        document.getElementById("restart-dialog").style.display="none";
+        document.getElementById("smoke-screen").style.display="none";
     }
     else if(value === 1)
     {
         document.getElementById("restart-dialog").style.display="none";
         document.getElementById("smoke-screen").style.display="none";
-    resetBoard();
+        resetBoard();
     }
 }
 
 function resetBoard()
 {
     clearBoard();
-    for(key in timers){
-    clearTimeout(timers[key]);
+    for(key in timers)
+    {
+        clearTimeout(timers[key]);
     }
     timers = [];
     timerCount = 0;
@@ -911,65 +948,66 @@ function resetBoard()
     initBoard();
 }
 
-function setHighlight(){
+function setHighlight()
+{
     if(player == 0)
     {
-    document.getElementById("pit5").style.opacity=1;
-    document.getElementById("pit4").style.opacity=1;
-    document.getElementById("pit3").style.opacity=1;
-    document.getElementById("pit2").style.opacity=1;
-    document.getElementById("pit1").style.opacity=1;
-    document.getElementById("pit0").style.opacity=1;
+        document.getElementById("pit5").style.opacity=1;
+        document.getElementById("pit4").style.opacity=1;
+        document.getElementById("pit3").style.opacity=1;
+        document.getElementById("pit2").style.opacity=1;
+        document.getElementById("pit1").style.opacity=1;
+        document.getElementById("pit0").style.opacity=1;
 
-    document.getElementById("pit12").style.opacity=0;
-    document.getElementById("pit11").style.opacity=0;
-    document.getElementById("pit10").style.opacity=0;
-    document.getElementById("pit9").style.opacity=0;
-    document.getElementById("pit8").style.opacity=0;
-    document.getElementById("pit7").style.opacity=0;
+        document.getElementById("pit12").style.opacity=0;
+        document.getElementById("pit11").style.opacity=0;
+        document.getElementById("pit10").style.opacity=0;
+        document.getElementById("pit9").style.opacity=0;
+        document.getElementById("pit8").style.opacity=0;
+        document.getElementById("pit7").style.opacity=0;
 
-    document.getElementById("pit5").style.cursor="pointer";
-    document.getElementById("pit4").style.cursor="pointer";
-    document.getElementById("pit3").style.cursor="pointer";
-    document.getElementById("pit2").style.cursor="pointer";
-    document.getElementById("pit1").style.cursor="pointer";
-    document.getElementById("pit0").style.cursor="pointer";
+        document.getElementById("pit5").style.cursor="pointer";
+        document.getElementById("pit4").style.cursor="pointer";
+        document.getElementById("pit3").style.cursor="pointer";
+        document.getElementById("pit2").style.cursor="pointer";
+        document.getElementById("pit1").style.cursor="pointer";
+        document.getElementById("pit0").style.cursor="pointer";
 
-    document.getElementById("pit12").style.cursor="default";
-    document.getElementById("pit11").style.cursor="default";
-    document.getElementById("pit10").style.cursor="default";
-    document.getElementById("pit9").style.cursor="default";
-    document.getElementById("pit8").style.cursor="default";
-    document.getElementById("pit7").style.cursor="default";
+        document.getElementById("pit12").style.cursor="default";
+        document.getElementById("pit11").style.cursor="default";
+        document.getElementById("pit10").style.cursor="default";
+        document.getElementById("pit9").style.cursor="default";
+        document.getElementById("pit8").style.cursor="default";
+        document.getElementById("pit7").style.cursor="default";
     }
     else
     {
-    document.getElementById("pit5").style.opacity=0;
-    document.getElementById("pit4").style.opacity=0;
-    document.getElementById("pit3").style.opacity=0;
-    document.getElementById("pit2").style.opacity=0;
-    document.getElementById("pit1").style.opacity=0;
-    document.getElementById("pit0").style.opacity=0;
-    document.getElementById("pit12").style.opacity=1;
-    document.getElementById("pit11").style.opacity=1;
-    document.getElementById("pit10").style.opacity=1;
-    document.getElementById("pit9").style.opacity=1;
-    document.getElementById("pit8").style.opacity=1;
-    document.getElementById("pit7").style.opacity=1;
+        document.getElementById("pit5").style.opacity=0;
+        document.getElementById("pit4").style.opacity=0;
+        document.getElementById("pit3").style.opacity=0;
+        document.getElementById("pit2").style.opacity=0;
+        document.getElementById("pit1").style.opacity=0;
+        document.getElementById("pit0").style.opacity=0;
+        document.getElementById("pit12").style.opacity=1;
+        document.getElementById("pit11").style.opacity=1;
+        document.getElementById("pit10").style.opacity=1;
+        document.getElementById("pit9").style.opacity=1;
+        document.getElementById("pit8").style.opacity=1;
+        document.getElementById("pit7").style.opacity=1;
 
-    document.getElementById("pit5").style.cursor="default";
-    document.getElementById("pit4").style.cursor="default";
-    document.getElementById("pit3").style.cursor="default";
-    document.getElementById("pit2").style.cursor="default";
-    document.getElementById("pit1").style.cursor="default";
-    document.getElementById("pit0").style.cursor="default";
+        document.getElementById("pit5").style.cursor="default";
+        document.getElementById("pit4").style.cursor="default";
+        document.getElementById("pit3").style.cursor="default";
+        document.getElementById("pit2").style.cursor="default";
+        document.getElementById("pit1").style.cursor="default";
+        document.getElementById("pit0").style.cursor="default";
 
-    document.getElementById("pit12").style.cursor="pointer";
-    document.getElementById("pit11").style.cursor="pointer";
-    document.getElementById("pit10").style.cursor="pointer";
-    document.getElementById("pit9").style.cursor="pointer";
-    document.getElementById("pit8").style.cursor="pointer";
-    document.getElementById("pit7").style.cursor="pointer";
+        document.getElementById("pit12").style.cursor="pointer";
+        document.getElementById("pit11").style.cursor="pointer";
+        document.getElementById("pit10").style.cursor="pointer";
+        document.getElementById("pit9").style.cursor="pointer";
+        document.getElementById("pit8").style.cursor="pointer";
+        document.getElementById("pit7").style.cursor="pointer";
     }
 }
 
@@ -978,16 +1016,16 @@ function setOption(value)
     if(!soundoff) sound_button_click.play();
     if(value === 0)
     {
-    document.getElementById("endgame-dialog").style.display="none";
-    document.getElementById("screen-game").style.display="none";
-    document.getElementById("smoke-screen").style.display="none";
+        document.getElementById("endgame-dialog").style.display="none";
+        document.getElementById("screen-game").style.display="none";
+        document.getElementById("smoke-screen").style.display="none";
         document.getElementById("screen").style.display="inline";
     }
     else(value === 1)
     {
         document.getElementById("endgame-dialog").style.display="none";
         document.getElementById("smoke-screen").style.display="none";
-    resetBoard();
+        resetBoard();
     }
 }
 
