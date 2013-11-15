@@ -20,7 +20,7 @@ body{
     overflow: hidden;
     margin: 0px;
     -webkit-user-select: none;
-    background-color: "white";
+    background-color: white;
     box-shadow: 5px 5px 20px black;
     position: absolute;
     width: 1024px;
@@ -140,7 +140,7 @@ button{
     color: #5c95aa;
     z-index:3;
     opacity: 1;
-    background: url("../images/MANCALA-start_1player_icon-active.png");
+    background: url(../images/MANCALA-start_1player_icon-active.png);
 }
 
 #two-player-icon_toggleleft{
@@ -152,7 +152,7 @@ button{
     z-index:3;
     color: #5c95aa;
     opacity: 1;
-    background: url("../images/MANCALA-start_2players_icon-inactive.png");
+    background: url(../images/MANCALA-start_2players_icon-inactive.png);
 }
 
 #one-player-icon_toggleright{
@@ -164,7 +164,7 @@ button{
     color: #5c95aa;
     z-index:3;
     opacity: 1;
-    background: url("../images/MANCALA-start_1player_icon-inactive.png");
+    background: url(../images/MANCALA-start_1player_icon-inactive.png);
 }
 
 #two-player-icon_toggleright{
@@ -176,7 +176,7 @@ button{
     z-index: 3;
     color: #5c95aa;
     opacity: 1;
-    background: url("../images/MANCALA-start_2players_icon-active.png");
+    background: url(../images/MANCALA-start_2players_icon-active.png);
 }
 
 #toggle_left{
@@ -186,7 +186,7 @@ button{
     width: 62px;
     height: 26px;
     cursor: pointer;
-    background: url("../images/MANCALA-start_toggle_left.png");
+    background: url(../images/MANCALA-start_toggle_left.png);
     z-index:3;
 }
 
@@ -406,7 +406,7 @@ button{
 
 #top .restart{
     position: absolute;
-    background: url("../images/MANCALA-button01_restart_inactive.png");
+    background: url(../images/MANCALA-button01_restart_inactive.png);
     width: 60px;
     height: 40px;
 }
@@ -415,7 +415,7 @@ button{
     position: absolute;
     width: 50px;
     height: 40px;
-    background: url("../images/MANCALA-button02_settings_inactive.png");
+    background: url(../images/MANCALA-button02_settings_inactive.png);
     left: 60px;
 }
 
@@ -423,12 +423,12 @@ button{
     position: absolute;
     width: 60px;
     height: 40px;
-    background: url("../images/MANCALA-button03_help_inactive.png");
+    background: url(../images/MANCALA-button03_help_inactive.png);
     left: 110px;
 }
 
 #top .restart:active{
-    background: url("../images/MANCALA-button01_restart_active.png");
+    background: url(../images/MANCALA-button01_restart_active.png);
 }
 
 #top .settings:active{
@@ -461,7 +461,7 @@ button{
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     background: -webkit-gradient(linear, left top, left bottom, from(#bbe0e4), to(#85bdc4));
-    box-shadow: rgba(0,0,0,0.4) 0px 0px 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
     z-index:3;
 }
 
@@ -500,7 +500,7 @@ button{
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     background: -webkit-gradient(linear, left top, left bottom, from(#f3bc76), to(#d58f45));
-    box-shadow: rgba(0,0,0,0.4) 0px 0px 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
     z-index:3;
 }
 
@@ -510,7 +510,7 @@ button{
     left: 286px; 
     width: 452px;
     height: 118px;
-    background: url("../images/MANCALA-game_logo_box.jpg");
+    background: url(../images/MANCALA-game_logo_box.jpg);
     z-index:1;
 }
 
@@ -520,7 +520,7 @@ button{
     left: 286px;  
     width: 452px;
     height: 118px;
-    background: url("../images/MANCALA-game_logo_box_blank.jpg");
+    background: url(../images/MANCALA-game_logo_box_blank.jpg);
     z-index:2;
 }
 
@@ -546,7 +546,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit5:active{
@@ -554,7 +554,7 @@ button{
     left: 167px;
     top: 40px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit4{
@@ -564,7 +564,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit4:active{
@@ -572,7 +572,7 @@ button{
     left: 285px;
     top: 40px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit3{
@@ -582,7 +582,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit3:active{
@@ -590,7 +590,7 @@ button{
     left: 403px;
     top: 40px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit2{
@@ -600,7 +600,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit2:active{
@@ -608,7 +608,7 @@ button{
     left: 521px;
     top: 40px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 #center #pit1{
     position: absolute;
@@ -617,7 +617,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit1:active{
@@ -625,7 +625,7 @@ button{
     left: 639px;
     top: 40px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit0{
@@ -635,7 +635,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit0:active{
@@ -643,7 +643,7 @@ button{
     left: 758px;
     top: 40px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit7{
@@ -653,7 +653,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit7:active{
@@ -663,7 +663,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit8{
@@ -673,7 +673,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit8:active{
@@ -683,7 +683,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit9{
@@ -693,7 +693,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit9:active{
@@ -703,7 +703,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit10{
@@ -713,7 +713,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit10:active{
@@ -721,7 +721,7 @@ button{
     left: 521px;
     top: 416px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 #center #pit11{
     position: absolute;
@@ -730,7 +730,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit11:active{
@@ -738,7 +738,7 @@ button{
     left: 639px;
     top: 416px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 #center #pit12{
     position: absolute;
@@ -747,7 +747,7 @@ button{
     width: 117px;
     height: 142px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #pit12:active{
@@ -755,7 +755,7 @@ button{
     left: 758px;
     top: 416px;
     z-index:7;
-    background: url("../images/MANCALA-game_pit_highlight.png");
+    background: url(../images/MANCALA-game_pit_highlight.png);
 }
 
 #center #turn-arrow_p1{
@@ -806,21 +806,21 @@ button{
 
 #center .pit-count_p1{
     position: absolute;
-    top: 150 px;
+    top: 150px;
     font-family: ChunkFive;
     font-size: 24px;
     color: #65a9c2;
-    text-shadow: 2px 2px 1px rgba(244, 248, 231, 1);
+    text-shadow: 2px 2px 1px rgba(244,248,231,1);
     z-index:2;
 }
 
 #center .pit-count_p2{
     position: absolute;
-    bottom: 150 px;
+    bottom: 150px;
     font-family: ChunkFive;
     font-size: 24px;
     color: #e67c1f;
-    text-shadow: 2px 2px 1px rgba(244, 248, 231, 1);
+    text-shadow: 2px 2px 1px rgba(244,248,231,1);
 }
 
 #settings-dialog{
@@ -831,8 +831,7 @@ button{
     height: 250px;
     width: 470px;
     background: #ffffff;
-    box-shadow: inset rgba(143,158,141,0.5) 0px 0px 50px;
-    rgba(0,0,0,0.7) 5px 0px 30px;
+    box-shadow: 0px 0px 50px rgba(143,158,141,0.5) inset;
     opacity: 0; 	
     z-index: 12;
 }
@@ -1034,8 +1033,7 @@ p.commentary{
     height: 462px;
     width: 900px;
     background: #ffffff;
-    box-shadow: inset rgba(143,158,141,0.5) 0px 0px 50px;
-    rgba(0,0,0,0.7) 5px 0px 30px;
+    box-shadow: 0px 0px 50px rgba(143,158,141,0.5) inset;
     display: none;
     z-index: 12;
 }
@@ -1102,8 +1100,7 @@ p.commentary{
     height: 34px;
     width: 34px;
     color: #65a9c2;
-    text-shadow: inset rgba(244, 248, 231, 1) 2px 2px 1px;
-    rgba(0,0,0,0.7) 5px 0px 30px;
+    text-shadow: 2px 2px 1px rgba(244,248,231,1);
     z-index: 10;	    	
 }
 
@@ -1114,8 +1111,7 @@ p.commentary{
     height: 34px;
     width: 34px;
     color: #e67c1f;
-    text-shadow: inset rgba(244, 248, 231, 1) 2px 2px 1px;
-    rgba(0,0,0,0.7) 5px 0px 30px;
+    text-shadow: 2px 2px 1px rgba(244,248,231,1);
     z-index: 10;	
 }
 
@@ -1238,8 +1234,7 @@ p.commentary{
     left: 240px; 
     top: 105px;
     background: #ffffff;
-    box-shadow: inset rgba(143,158,141,0.5) 0px 0px 50px;
-    rgba(0,0,0,0.7) 5px 0px 30px;
+    box-shadow: 0px 0px 50px rgba(143,158,141,0.5) inset;
     z-index: 12;
     display: none;
 }
@@ -1339,8 +1334,7 @@ p.commentary{
     left: 240px;
     top: 165px;
     background: #ffffff;
-    box-shadow: inset rgba(143,158,141,0.5) 0px 0px 50px;
-    rgba(0,0,0,0.7) 5px 0px 30px;
+    box-shadow: 0px 0px 50px rgba(143,158,141,0.5) inset;
     z-index: 12;
     display: none;
 }
